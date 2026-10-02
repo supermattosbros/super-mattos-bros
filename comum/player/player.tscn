@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://0vjgf76puh03" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-04.png" id="11_e7oew"]
 [ext_resource type="Texture2D" uid="uid://dj6chdku7gvks" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-05.png" id="12_c35mf"]
 [ext_resource type="Texture2D" uid="uid://ciqt4k87fl7k6" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-06.png" id="13_65viv"]
-[ext_resource type="PackedScene" uid="uid://3jsfege6lw6c" path="res://comum/prefabs/hitbox.tscn" id="17_e7oew"]
 [ext_resource type="PackedScene" uid="uid://coom4hjor6a56" path="res://comum/prefabs/hurtbox.tscn" id="18_c35mf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36jtr"]
@@ -101,13 +100,10 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_65viv"]
-size = Vector2(14, 5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7c3f"]
-size = Vector2(11, 15)
+size = Vector2(11, 21)
 
-[node name="player" type="CharacterBody2D" unique_id=1988069857]
+[node name="player" type="CharacterBody2D" unique_id=1988069857 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_qjkh3")
 
@@ -124,16 +120,10 @@ autoplay = "idle"
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1413601189]
 
-[node name="hitbox" parent="." unique_id=38914877 instance=ExtResource("17_e7oew")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1528670457]
-position = Vector2(0, -2.5)
-shape = SubResource("RectangleShape2D_65viv")
-
 [node name="hurtbox" parent="." unique_id=1822002903 instance=ExtResource("18_c35mf")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=2015306649]
-position = Vector2(-0.5, -13.5)
+position = Vector2(-0.5, -10.5)
 shape = SubResource("RectangleShape2D_x7c3f")
 debug_color = Color(1, 0, 0.49803922, 0.41960785)
 
@@ -143,7 +133,7 @@ position = Vector2(0, -10)
 rect = Rect2(-7, -10, 14, 20)
 
 [node name="ponto_tiro" type="Marker2D" parent="." unique_id=1270501531]
-position = Vector2(9, -11)
+position = Vector2(10, -11)
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

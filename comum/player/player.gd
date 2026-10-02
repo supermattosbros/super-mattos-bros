@@ -4,7 +4,6 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
 @onready var anim: AnimatedSprite2D = $anim
-@onready var hitbox: Hitbox = $hitbox
 @onready var hurtbox: Hurtbox = $hurtbox
 @onready var ponto_tiro: Marker2D = $ponto_tiro
 
@@ -15,7 +14,6 @@ var knockback_vector = Vector2.ZERO
 
 func _ready() -> void:
 	hurtbox.damage_received.connect(_on_damage_received)
-	hitbox.hit_registered.connect(_on_feet_hitbox_hit)
 	$RemoteTransform2D.remote_path = NodePath("../../camera")
 	
 	
@@ -60,8 +58,10 @@ func update_state(direction) -> void:
 			
 	if direction==1:
 		anim.flip_h = false
+		
 	if direction==-1:
 		anim.flip_h = true
+		ponto_tiro.scale.x = -1
 		
 	anim.play(state)
 	
@@ -70,8 +70,10 @@ func atirar() -> void:
 
 	if anim.flip_h:
 		projetil.direcao = -1
+		ponto_tiro.position.x = -10
 	else:
 		projetil.direcao = 1
+		ponto_tiro.position.x = 10
 
 	projetil.global_position = ponto_tiro.global_position
 	get_tree().current_scene.add_child(projetil)

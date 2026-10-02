@@ -15,6 +15,11 @@ func _on_area_entered(area: Area2D) -> void:
 		if area.get_parent() == get_parent():
 			return
 		
+		# Se for um projétil, só pode acertar inimigos
+		if get_collision_layer_value(7):
+			if area.get_parent().is_in_group("player"):
+				return
+		
 		var direction: float = sign(area.global_position.x-global_position.x)
 		
 		if direction == 0:
