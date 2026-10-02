@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://8ettn87dkgvr"]
+
+[ext_resource type="Script" uid="uid://dgdw684j7v8tj" path="res://comum/items/crate/crate.gd" id="1_i5fte"]
+[ext_resource type="Texture2D" uid="uid://dtrvrkfp064ox" path="res://comum/assets/Sunny-land-files/Assets/environment/Props/crate.png" id="1_x5upp"]
+[ext_resource type="Texture2D" uid="uid://g1q1di8w6fk0" path="res://comum/items/crate/crate-part01.png" id="2_nsahu"]
+[ext_resource type="Texture2D" uid="uid://bovq8fr63vxc4" path="res://comum/items/crate/crate-part02.png" id="3_e4ume"]
+[ext_resource type="Texture2D" uid="uid://cqj7ivlh7ggvs" path="res://comum/items/crate/crate-part03.png" id="4_3ot7x"]
+[ext_resource type="Texture2D" uid="uid://etogdiymg3d1" path="res://comum/items/crate/crate-part04.png" id="5_77801"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36jtr"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smrfm"]
+size = Vector2(12, 3)
+
+[node name="crate" type="StaticBody2D" unique_id=797014304]
+collision_mask = 2
+script = ExtResource("1_i5fte")
+pieces = Array[Texture2D]([ExtResource("2_nsahu"), ExtResource("3_e4ume"), ExtResource("4_3ot7x"), ExtResource("5_77801")])
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=823621078]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_36jtr")
+
+[node name="texture" type="Sprite2D" parent="." unique_id=1067915358]
+position = Vector2(0, 0.5)
+scale = Vector2(1, 0.9375)
+texture = ExtResource("1_x5upp")
+
+[node name="head_detector" type="Area2D" parent="." unique_id=1172238720]
+collision_mask = 2
+
+[node name="collision" type="CollisionShape2D" parent="head_detector" unique_id=405241723]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_smrfm")
+
+[node name="spawn_point" type="Marker2D" parent="." unique_id=1644561002]
+position = Vector2(0, -17)
+
+[connection signal="body_entered" from="head_detector" to="." method="_on_head_detector_body_entered"]

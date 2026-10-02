@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bydvdjfa1gslo"]
+
+[ext_resource type="Script" uid="uid://jnfu3m2vc6vv" path="res://comum/ui/hud/hearts/heart_hud.gd" id="1_v44ox"]
+[ext_resource type="Texture2D" uid="uid://blacrq1jt81q7" path="res://comum/ui/hud/hearts/heart.png" id="2_hksxv"]
+
+[node name="heartGui" type="Panel" unique_id=796079049]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 52)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -239.5
+offset_top = -135.0
+offset_right = -975.5
+offset_bottom = -533.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v44ox")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1204042755]
+position = Vector2(0, -8)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_hksxv")
+centered = false
+hframes = 5

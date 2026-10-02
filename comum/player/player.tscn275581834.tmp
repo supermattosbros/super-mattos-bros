@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://demjixgkr2ork"]
+
+[ext_resource type="Script" uid="uid://d0cop2llobgs3" path="res://player/player.gd" id="1_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://curlc3fqgyu4f" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/idle/sprites/f-01.png" id="1_yw30f"]
+[ext_resource type="Texture2D" uid="uid://dp43cgsh3av4g" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/idle/sprites/f-02.png" id="2_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://tt4ax2b68334" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/idle/sprites/f-03.png" id="3_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://dfkgkkav0r08c" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/idle/sprites/f-04.png" id="4_boad6"]
+[ext_resource type="Texture2D" uid="uid://b32v5qwpuxjux" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/jump/sprites/f-01.png" id="6_yllr7"]
+[ext_resource type="Texture2D" uid="uid://b4dcejgsujb2u" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/jump/sprites/f-02.png" id="7_kb6p2"]
+[ext_resource type="Texture2D" uid="uid://ct63e05c86m33" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-01.png" id="8_wodsf"]
+[ext_resource type="Texture2D" uid="uid://ccwsbvmjil34s" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-02.png" id="9_32hag"]
+[ext_resource type="Texture2D" uid="uid://cwbiu8qdr3ksi" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-03.png" id="10_tqiix"]
+[ext_resource type="Texture2D" uid="uid://0vjgf76puh03" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-04.png" id="11_e7oew"]
+[ext_resource type="Texture2D" uid="uid://dj6chdku7gvks" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-05.png" id="12_c35mf"]
+[ext_resource type="Texture2D" uid="uid://ciqt4k87fl7k6" path="res://assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-06.png" id="13_65viv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smrfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_kb6p2")
+}],
+"loop": 2,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yw30f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qjkh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g6k8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_boad6")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yllr7")
+}],
+"loop": 2,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wodsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_32hag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tqiix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_e7oew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c35mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_65viv")
+}],
+"loop": 2,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36jtr"]
+radius = 8.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1988069857]
+collision_layer = 2
+script = ExtResource("1_qjkh3")
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=24712799]
+texture_filter = 1
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_smrfm")
+animation = &"fall"
+autoplay = "idle"
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=724044701]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_36jtr")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1413601189]

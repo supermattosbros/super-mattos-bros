@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://bojo7oy7se5hp"]
+
+[ext_resource type="Texture2D" uid="uid://bi6jyqjflg6mw" path="res://comum/assets/Sunny-land-files/Assets/Characters/Opossum/opossum/opossum-1.png" id="1_ov7hn"]
+[ext_resource type="Script" uid="uid://dr7025wnvjcbj" path="res://comum/inimigos/skunk/skunk.gd" id="1_rh7hl"]
+[ext_resource type="Texture2D" uid="uid://bu360kvk6naw3" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland FX/Sprites/enemy-death/enemy-death-1.png" id="2_72ysj"]
+[ext_resource type="Texture2D" uid="uid://bx0r0b0pkqbby" path="res://comum/inimigos/skunk/opossum-hurt.png" id="2_86g02"]
+[ext_resource type="Texture2D" uid="uid://bmtstumtmmbyi" path="res://comum/assets/Sunny-land-files/Assets/Characters/Opossum/opossum/opossum-2.png" id="2_jpscg"]
+[ext_resource type="Texture2D" uid="uid://vtxstvjsa2sd" path="res://comum/assets/Sunny-land-files/Assets/Characters/Opossum/opossum/opossum-3.png" id="3_d68dx"]
+[ext_resource type="Texture2D" uid="uid://cfqwxl4xu72ms" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland FX/Sprites/enemy-death/enemy-death-2.png" id="3_n8cyh"]
+[ext_resource type="Texture2D" uid="uid://cjk7knewf7bk3" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland FX/Sprites/enemy-death/enemy-death-3.png" id="4_4hyfe"]
+[ext_resource type="Texture2D" uid="uid://brw17ao244bpm" path="res://comum/assets/Sunny-land-files/Assets/Characters/Opossum/opossum/opossum-4.png" id="4_8oryb"]
+[ext_resource type="Texture2D" uid="uid://bpyrgsfl6xmk8" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland FX/Sprites/enemy-death/enemy-death-4.png" id="5_4df0d"]
+[ext_resource type="Texture2D" uid="uid://dlix2aao4auwu" path="res://comum/assets/Sunny-land-files/Assets/Characters/Opossum/opossum/opossum-5.png" id="5_qj8nc"]
+[ext_resource type="Texture2D" uid="uid://chpy3f532r4y0" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland FX/Sprites/enemy-death/enemy-death-5.png" id="6_ce7nt"]
+[ext_resource type="Texture2D" uid="uid://un0xpke4fxbe" path="res://comum/assets/Sunny-land-files/Assets/Characters/Opossum/opossum/opossum-6.png" id="6_mksop"]
+[ext_resource type="Texture2D" uid="uid://8ybfth0f2kvm" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland FX/Sprites/enemy-death/enemy-death-6.png" id="7_pnhgj"]
+[ext_resource type="PackedScene" uid="uid://3jsfege6lw6c" path="res://comum/prefabs/hitbox.tscn" id="8_ochji"]
+[ext_resource type="PackedScene" uid="uid://coom4hjor6a56" path="res://comum/prefabs/hurtbox.tscn" id="9_86g02"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36jtr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_72ysj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n8cyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4hyfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4df0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ce7nt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pnhgj")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_86g02")
+}],
+"loop": 0,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ov7hn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jpscg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d68dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8oryb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qj8nc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mksop")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yaaom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36jtr"]
+size = Vector2(30, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smrfm"]
+size = Vector2(34, 21)
+
+[node name="skunk" type="CharacterBody2D" unique_id=927390691 groups=["inimigos"]]
+collision_layer = 4
+script = ExtResource("1_rh7hl")
+turn_time = 4.0
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=1748106437]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_36jtr")
+animation = &"move"
+autoplay = "move"
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=989504358]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_yaaom")
+
+[node name="timer" type="Timer" parent="." unique_id=315090146]
+autostart = true
+
+[node name="hitbox" parent="." unique_id=38914877 instance=ExtResource("8_ochji")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=2003407905]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_36jtr")
+
+[node name="hurtbox" parent="." unique_id=1822002903 instance=ExtResource("9_86g02")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=24258655]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_smrfm")
+debug_color = Color(1, 0, 0.49803922, 0.41960785)
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://demjixgkr2ork"]
+
+[ext_resource type="Script" uid="uid://d0cop2llobgs3" path="res://comum/player/player.gd" id="1_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://curlc3fqgyu4f" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/idle/sprites/f-01.png" id="1_yw30f"]
+[ext_resource type="Texture2D" uid="uid://8pey1by24ikv" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/hurt/sprites/f-01.png" id="2_32hag"]
+[ext_resource type="Texture2D" uid="uid://dp43cgsh3av4g" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/idle/sprites/f-02.png" id="2_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://tt4ax2b68334" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/idle/sprites/f-03.png" id="3_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://c5s2bcriiy1q" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/hurt/sprites/f-02.png" id="3_tqiix"]
+[ext_resource type="Texture2D" uid="uid://dfkgkkav0r08c" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/idle/sprites/f-04.png" id="4_boad6"]
+[ext_resource type="Texture2D" uid="uid://djyxh0cnjx8me" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/Hurt2/sprites/f-01.png" id="5_e7oew"]
+[ext_resource type="Texture2D" uid="uid://b32v5qwpuxjux" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/jump/sprites/f-01.png" id="6_yllr7"]
+[ext_resource type="Texture2D" uid="uid://b4dcejgsujb2u" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/jump/sprites/f-02.png" id="7_kb6p2"]
+[ext_resource type="Texture2D" uid="uid://ct63e05c86m33" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-01.png" id="8_wodsf"]
+[ext_resource type="Texture2D" uid="uid://ccwsbvmjil34s" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-02.png" id="9_32hag"]
+[ext_resource type="Texture2D" uid="uid://cwbiu8qdr3ksi" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-03.png" id="10_tqiix"]
+[ext_resource type="Texture2D" uid="uid://0vjgf76puh03" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-04.png" id="11_e7oew"]
+[ext_resource type="Texture2D" uid="uid://dj6chdku7gvks" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-05.png" id="12_c35mf"]
+[ext_resource type="Texture2D" uid="uid://ciqt4k87fl7k6" path="res://comum/assets/Sunny-land-files/Assets/Characters/Foxy/run/sprites/f-06.png" id="13_65viv"]
+[ext_resource type="PackedScene" uid="uid://3jsfege6lw6c" path="res://comum/prefabs/hitbox.tscn" id="17_e7oew"]
+[ext_resource type="PackedScene" uid="uid://coom4hjor6a56" path="res://comum/prefabs/hurtbox.tscn" id="18_c35mf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36jtr"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smrfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_32hag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tqiix")
+}],
+"loop": 0,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_kb6p2")
+}],
+"loop": 0,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_e7oew")
+}],
+"loop": 0,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yw30f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qjkh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g6k8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_boad6")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yllr7")
+}],
+"loop": 0,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wodsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_32hag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tqiix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_e7oew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c35mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_65viv")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65viv"]
+size = Vector2(14, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7c3f"]
+size = Vector2(11, 15)
+
+[node name="player" type="CharacterBody2D" unique_id=1988069857]
+collision_layer = 2
+script = ExtResource("1_qjkh3")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=724044701]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_36jtr")
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=24712799]
+texture_filter = 1
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_smrfm")
+animation = &"run"
+autoplay = "idle"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1413601189]
+
+[node name="hitbox" parent="." unique_id=38914877 instance=ExtResource("17_e7oew")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1528670457]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_65viv")
+
+[node name="hurtbox" parent="." unique_id=1822002903 instance=ExtResource("18_c35mf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=2015306649]
+position = Vector2(-0.5, -13.5)
+shape = SubResource("RectangleShape2D_x7c3f")
+debug_color = Color(1, 0, 0.49803922, 0.41960785)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1197360569]
+modulate = Color(1, 1, 0.11372549, 1)
+position = Vector2(0, -10)
+rect = Rect2(-7, -10, 14, 20)
+
+[node name="ponto_tiro" type="Marker2D" parent="." unique_id=1270501531]
+position = Vector2(9, -11)
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

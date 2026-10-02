@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://cusbjwsbuhory"]
+
+[ext_resource type="Shader" uid="uid://clj14ae1ujyhv" path="res://comum/ui/hud/shaders/vignette.gdshader" id="1_580ub"]
+[ext_resource type="Script" uid="uid://hr3rp58yl5io" path="res://comum/ui/hud/hud_manager.gd" id="2_b4ae6"]
+[ext_resource type="Texture2D" uid="uid://dfnathf28kwfj" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/cherry/cherry-1.png" id="3_qv4qp"]
+[ext_resource type="Texture2D" uid="uid://bul0sd543wt3h" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/cherry/cherry-2.png" id="4_sh35x"]
+[ext_resource type="Texture2D" uid="uid://8afqr4nmcqt1" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/cherry/cherry-3.png" id="5_gms7k"]
+[ext_resource type="Texture2D" uid="uid://dw5tsoyu0if46" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/cherry/cherry-5.png" id="6_hwufu"]
+[ext_resource type="Texture2D" uid="uid://buc5veyb6nedu" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/cherry/cherry-6.png" id="7_mq7b8"]
+[ext_resource type="Texture2D" uid="uid://bjdb1n0fyyyk3" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/cherry/cherry-7.png" id="8_jvpmi"]
+[ext_resource type="Texture2D" uid="uid://drthsq517gjyd" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/gem/gem-1.png" id="10_jvpmi"]
+[ext_resource type="Texture2D" uid="uid://6f07q543rrc2" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/gem/gem-2.png" id="11_t2ad4"]
+[ext_resource type="Texture2D" uid="uid://nlfgjm47lnud" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/gem/gem-3.png" id="12_0jxvb"]
+[ext_resource type="Texture2D" uid="uid://c3pfd3ss3ark2" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/gem/gem-4.png" id="13_pt78x"]
+[ext_resource type="Texture2D" uid="uid://bfrx1pddtbr2f" path="res://comum/assets/Sunny-land-files/Assets/Misc/Sunnyland items/Sprites/gem/gem-5.png" id="14_put16"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sh8so"]
+shader = ExtResource("1_580ub")
+shader_parameter/vignette_intensity = 1.0
+shader_parameter/vignette_opacity = 1.0
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7yy3o"]
+frames = 7
+speed_scale = 5.0
+frame_0/texture = ExtResource("3_qv4qp")
+frame_1/texture = ExtResource("3_qv4qp")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_sh35x")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_gms7k")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_hwufu")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("7_mq7b8")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("8_jvpmi")
+frame_6/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_qv4qp"]
+frames = 5
+speed_scale = 3.0
+frame_0/texture = ExtResource("10_jvpmi")
+frame_1/texture = ExtResource("11_t2ad4")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("12_0jxvb")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("13_pt78x")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("14_put16")
+frame_4/duration = 1.0
+
+[node name="HUD" type="CanvasLayer" unique_id=551040082]
+script = ExtResource("2_b4ae6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1201308728]
+visible = false
+material = SubResource("ShaderMaterial_sh8so")
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+color = Color(0, 0, 0, 1)
+
+[node name="control" type="Control" parent="." unique_id=1241329256]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container" type="MarginContainer" parent="control" unique_id=170034825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="control/container" unique_id=1324579733]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="life_container" type="HBoxContainer" parent="control/container/VBoxContainer" unique_id=1572133096]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="cherries_container" type="HBoxContainer" parent="control/container/VBoxContainer" unique_id=1326587252]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="cherries_icon" type="TextureRect" parent="control/container/VBoxContainer/cherries_container" unique_id=1695327721]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AnimatedTexture_7yy3o")
+expand_mode = 3
+
+[node name="cherries_counter" type="Label" parent="control/container/VBoxContainer/cherries_container" unique_id=305648621]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 30
+text = "00"
+vertical_alignment = 1
+
+[node name="gems_container" type="HBoxContainer" parent="control/container/VBoxContainer" unique_id=1622006653]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="gems_icon" type="TextureRect" parent="control/container/VBoxContainer/gems_container" unique_id=1518992213]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AnimatedTexture_qv4qp")
+expand_mode = 3
+
+[node name="gems_counter" type="Label" parent="control/container/VBoxContainer/gems_container" unique_id=315485869]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 30
+text = "00"
+vertical_alignment = 1
+
+[node name="nome_fase_label" type="Label" parent="control/container" unique_id=1357760507]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 36
+text = "Nome da fase
+"
+vertical_alignment = 1

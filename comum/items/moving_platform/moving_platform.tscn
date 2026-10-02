@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://du4u4enaoxows"]
+
+[ext_resource type="Texture2D" uid="uid://cfusaqd8dth4l" path="res://comum/assets/Sunny-land-files/Assets/environment/Props/platform-long.png" id="1_v50ck"]
+[ext_resource type="Script" uid="uid://deqo7cin0rk3f" path="res://comum/items/moving_platform/moving_platform.gd" id="1_ytssn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36jtr"]
+size = Vector2(32, 16)
+
+[node name="moving_platform" type="AnimatableBody2D" unique_id=933549839]
+collision_mask = 2
+script = ExtResource("1_ytssn")
+wait_time = 2.0
+
+[node name="anim" type="Sprite2D" parent="." unique_id=1798612319]
+show_behind_parent = true
+texture = ExtResource("1_v50ck")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=2107418687]
+show_behind_parent = true
+shape = SubResource("RectangleShape2D_36jtr")
+one_way_collision = true

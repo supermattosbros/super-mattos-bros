@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dqwvfty2llqn8"]
+
+[ext_resource type="Script" uid="uid://t3m0ig2quqyu" path="res://comum/items/crate/crate_piece.gd" id="1_os1av"]
+
+[node name="crate_piece" type="RigidBody2D" unique_id=1618559105]
+script = ExtResource("1_os1av")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1407853423]
+
+[node name="texture" type="Sprite2D" parent="." unique_id=1534196229]
+
+[node name="notifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=1820820807]
+
+[connection signal="screen_exited" from="notifier" to="." method="_on_notifier_screen_exited"]

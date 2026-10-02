@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://cniqelkt8xqyh"]
+
+[ext_resource type="Texture2D" uid="uid://b4gxmmtpbgo87" path="res://icon/icon.svg" id="1_g0evy"]
+[ext_resource type="Script" uid="uid://dux13evyyor4n" path="res://comum/cenas/selecao_fases/selecao_fases.gd" id="1_guhmv"]
+[ext_resource type="Texture2D" uid="uid://tesi1ybji8dp" path="res://comum/cenas/selecao_fases/imagens/background.png" id="2_pwdbn"]
+[ext_resource type="Texture2D" uid="uid://5roo1fnaf6y0" path="res://comum/cenas/selecao_fases/imagens/fase_final.png" id="4_hiocv"]
+[ext_resource type="Texture2D" uid="uid://kaxsi13qnbxw" path="res://comum/cenas/selecao_fases/imagens/padlock.png" id="5_eybrg"]
+[ext_resource type="AudioStream" uid="uid://cj3viy3msyg3w" path="res://comum/cenas/selecao_fases/sfx/sound-1.mp3" id="6_483hf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g0evy"]
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hiocv"]
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwdbn"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4kyo"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.94509804, 0.9411765, 0.91764706, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.49803922, 0.5176471, 0.5254902, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eybrg"]
+bg_color = Color(0.94509804, 0.9411765, 0.91764706, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.49803922, 0.5176471, 0.5254902, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_483hf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.94509804, 0.9411765, 0.91764706, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.49803922, 0.5176471, 0.5254902, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="SelecaoFases" type="Control" unique_id=1474585219]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_guhmv")
+
+[node name="FundoBranco" type="ColorRect" parent="." unique_id=323203532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1739823481]
+self_modulate = Color(1, 1, 1, 0.5058824)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pwdbn")
+
+[node name="Margen" type="MarginContainer" parent="." unique_id=720898624]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxPrincipal" type="VBoxContainer" parent="Margen" unique_id=2031240347]
+layout_mode = 2
+
+[node name="Cabecalho" type="HBoxContainer" parent="Margen/VBoxPrincipal" unique_id=155822275]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Margen/VBoxPrincipal/Cabecalho" unique_id=318559737]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_g0evy")
+expand_mode = 2
+
+[node name="Titulo" type="Label" parent="Margen/VBoxPrincipal/Cabecalho" unique_id=965781073]
+layout_mode = 2
+text = "SELEÇÃO DE FASES"
+label_settings = SubResource("LabelSettings_g0evy")
+
+[node name="Control" type="Control" parent="Margen/VBoxPrincipal/Cabecalho" unique_id=1757191873]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Progresso" type="VBoxContainer" parent="Margen/VBoxPrincipal/Cabecalho" unique_id=860473465]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margen/VBoxPrincipal/Cabecalho/Progresso" unique_id=997839276]
+layout_mode = 2
+text = "4/8"
+label_settings = SubResource("LabelSettings_hiocv")
+horizontal_alignment = 1
+
+[node name="LabelFases" type="Label" parent="Margen/VBoxPrincipal/Cabecalho/Progresso" unique_id=601080922]
+layout_mode = 2
+text = "CHAVES"
+label_settings = SubResource("LabelSettings_pwdbn")
+
+[node name="Conteúdo" type="HBoxContainer" parent="Margen/VBoxPrincipal" unique_id=298506279]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="GradeFases" type="GridContainer" parent="Margen/VBoxPrincipal/Conteúdo" unique_id=2103529070]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/h_separation = 17
+theme_override_constants/v_separation = 15
+columns = 4
+
+[node name="PainelFaseFinal" type="PanelContainer" parent="Margen/VBoxPrincipal/Conteúdo" unique_id=1949500527]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w4kyo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal" unique_id=75719692]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxFinal" type="VBoxContainer" parent="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal/MarginContainer" unique_id=1230250257]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="LabelFinal" type="Label" parent="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal/MarginContainer/VBoxFinal" unique_id=511037502]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "FASE FINAL"
+horizontal_alignment = 1
+
+[node name="PreviewFinal" type="TextureRect" parent="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal/MarginContainer/VBoxFinal" unique_id=1694096851]
+custom_minimum_size = Vector2(131, 256)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_hiocv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxBloqueio" type="HBoxContainer" parent="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal/MarginContainer/VBoxFinal" unique_id=1703983536]
+custom_minimum_size = Vector2(128, 40)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="CadeadoFinal" type="TextureRect" parent="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal/MarginContainer/VBoxFinal/HBoxBloqueio" unique_id=755511738]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_eybrg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextoBloqueio" type="Label" parent="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal/MarginContainer/VBoxFinal/HBoxBloqueio" unique_id=1195616222]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "BLOQUEADA"
+horizontal_alignment = 1
+
+[node name="BotaoFaseFinal" type="Button" parent="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal" unique_id=280619234]
+layout_mode = 2
+action_mode = 0
+flat = true
+
+[node name="Rodape" type="HBoxContainer" parent="Margen/VBoxPrincipal" unique_id=1003174928]
+layout_mode = 2
+
+[node name="BotãoVoltar" type="Button" parent="Margen/VBoxPrincipal/Rodape" unique_id=1450260640]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_eybrg")
+text = "VOLTAR"
+
+[node name="Espacador" type="Control" parent="Margen/VBoxPrincipal/Rodape" unique_id=301797272]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonRanking" type="Button" parent="Margen/VBoxPrincipal/Rodape" unique_id=1305676714]
+custom_minimum_size = Vector2(98, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_483hf")
+text = "RANKING
+"
+
+[node name="SomHover" type="AudioStreamPlayer2D" parent="." unique_id=77754089]
+stream = ExtResource("6_483hf")
+volume_db = 3.0
+
+[connection signal="mouse_entered" from="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal/BotaoFaseFinal" to="." method="_on_botao_fase_final_mouse_entered"]
+[connection signal="mouse_exited" from="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal/BotaoFaseFinal" to="." method="_on_botao_fase_final_mouse_exited"]
+[connection signal="pressed" from="Margen/VBoxPrincipal/Conteúdo/PainelFaseFinal/BotaoFaseFinal" to="." method="_on_botao_fase_final_pressed"]
+[connection signal="mouse_entered" from="Margen/VBoxPrincipal/Rodape/BotãoVoltar" to="." method="_on_botão_voltar_mouse_entered"]
+[connection signal="mouse_entered" from="Margen/VBoxPrincipal/Rodape/ButtonRanking" to="." method="_on_button_ranking_mouse_entered"]

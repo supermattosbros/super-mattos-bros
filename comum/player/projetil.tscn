@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b8s0adnd3lbdl"]
+
+[ext_resource type="Script" uid="uid://dm4oi7u7tsemi" path="res://comum/player/projetil.gd" id="1_deq82"]
+[ext_resource type="Texture2D" uid="uid://bm1tg4ortfbd5" path="res://comum/player/projetil.png" id="2_rtrb0"]
+[ext_resource type="PackedScene" uid="uid://3jsfege6lw6c" path="res://comum/prefabs/hitbox.tscn" id="3_amxbo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_36jtr"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36jtr"]
+size = Vector2(14, 6)
+
+[node name="projetil" type="Area2D" unique_id=1401471331]
+collision_layer = 80
+collision_mask = 32
+script = ExtResource("1_deq82")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2136112607]
+rect = Rect2(-6, -6, 12, 12)
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1765079318]
+shape = SubResource("CircleShape2D_36jtr")
+
+[node name="texture" type="Sprite2D" parent="." unique_id=229706489]
+texture = ExtResource("2_rtrb0")
+
+[node name="hitbox" parent="." unique_id=38914877 instance=ExtResource("3_amxbo")]
+collision_layer = 80
+knockback_force = 0.0
+knockback_upward = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=986711360]
+shape = SubResource("RectangleShape2D_36jtr")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

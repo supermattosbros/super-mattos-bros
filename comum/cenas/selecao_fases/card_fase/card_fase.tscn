@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://b8kc3epfxrojj"]
+
+[ext_resource type="Script" uid="uid://lotp32xme22x" path="res://comum/cenas/selecao_fases/card_fase/card_fase.gd" id="1_3q54h"]
+[ext_resource type="Texture2D" uid="uid://b70ce2wbnsry" path="res://comum/cenas/selecao_fases/card_fase/chave_sombra.png" id="2_70x18"]
+[ext_resource type="Texture2D" uid="uid://c3asjc4ryi5fr" path="res://comum/cenas/selecao_fases/imagens/preview_fases/calor_demais.png" id="2_qq66t"]
+[ext_resource type="Texture2D" uid="uid://b0nipffjmioeg" path="res://comum/cenas/selecao_fases/card_fase/checkbox_on.png" id="3_qq66t"]
+[ext_resource type="Texture2D" uid="uid://tpxwuurcenxu" path="res://comum/cenas/selecao_fases/card_fase/chave.png" id="3_vk6sy"]
+[ext_resource type="Texture2D" uid="uid://bkgxug5qand1i" path="res://comum/cenas/selecao_fases/card_fase/checkbox_off.png" id="4_ls8xn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50666"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.94509804, 0.9411765, 0.91764706, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.49934793, 0.51677084, 0.5254672, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70x18"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.85490197, 0.101960786, 0.101960786, 0.35686275)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq66t"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.13725491, 0.8, 0.14117648, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="CardFase" type="PanelContainer" unique_id=2001941930]
+custom_minimum_size = Vector2(100, 0)
+offset_right = 120.0
+offset_bottom = 163.0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_50666")
+script = ExtResource("1_3q54h")
+tex_chave_sombra = ExtResource("2_70x18")
+tex_chave = ExtResource("3_vk6sy")
+tex_checkbox_off = ExtResource("4_ls8xn")
+tex_checkbox_on = ExtResource("3_qq66t")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=408040299]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1265822908]
+layout_mode = 2
+
+[node name="Preview" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=396784804]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 128)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_qq66t")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Rodape" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=440869083]
+custom_minimum_size = Vector2(124, 0)
+layout_mode = 2
+
+[node name="NomeFase" type="Label" parent="MarginContainer/VBoxContainer/Rodape" unique_id=1737503556]
+custom_minimum_size = Vector2(103, 20)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Refúgio Florestal"
+horizontal_alignment = 1
+text_overrun_behavior = 5
+
+[node name="Espacador" type="Control" parent="MarginContainer/VBoxContainer/Rodape" unique_id=1214158672]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IconeEstado" type="TextureRect" parent="MarginContainer/VBoxContainer/Rodape" unique_id=179297375]
+texture_filter = 2
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_qq66t")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Botao" type="Button" parent="." unique_id=1664008858]
+z_index = 10
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_70x18")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qq66t")
+action_mode = 0
+flat = true
+
+[connection signal="mouse_entered" from="Botao" to="." method="_on_botao_mouse_entered"]
+[connection signal="mouse_exited" from="Botao" to="." method="_on_botao_mouse_exited"]
+[connection signal="pressed" from="Botao" to="." method="_on_botao_pressed"]
